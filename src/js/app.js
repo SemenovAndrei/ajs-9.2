@@ -1,8 +1,10 @@
-import Daemon from './characters/daemon';
+import getBuffer from './getBuffer';
+import ArrayBufferConverter from './arraybufferconverter';
 
-const character = new Daemon('Alex');
+const data = '{"data":{"user":{"id":1,"name":"Hitman","level":10}}}';
+console.log(getBuffer(data));
 
-character.stoned = true;
-character.attack = 10;
-character.range = 2;
-console.log(character);
+const test = new ArrayBufferConverter();
+test.load(getBuffer(data));
+
+console.log(test.toString());
