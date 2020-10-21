@@ -19,20 +19,4 @@ describe('create new ArrayBufferConverter', () => {
       expect(result.toString()).toBe(data);
     });
   });
-
-  describe('data is !string', () => {
-    test.each([
-      [[]],
-      [{}],
-      [{ 123: 123 }],
-      [12345],
-      [null],
-      [undefined],
-    ])('%p', (data) => {
-      const result = new ArrayBufferConverter();
-      expect(() => {
-        result.load(getBuffer(data)).toThrow();
-      });
-    });
-  });
 });
